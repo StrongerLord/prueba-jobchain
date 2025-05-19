@@ -29,7 +29,12 @@ export default function Home() {
             setIsHighLighted(true);
           }}
           onBlur={() =>
-            valueInput === "" ? setIsSelected(false) : setIsHighLighted(false)
+            valueInput === ""
+              ? () => {
+                  setIsSelected(false);
+                  setIsHighLighted(false);
+                }
+              : setIsHighLighted(false)
           }
         />
       </div>
